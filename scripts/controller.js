@@ -13,13 +13,8 @@ $('#btn-connect').click(function () {
       $("<td>").text(payload).appendTo($(tr))
       $("<td>").text(timestamp).appendTo($(tr))
       $("tbody").append($(tr))
-
-
     })
-
   })
-
-
   $("#btn-publish").click(function () {
 
     var topic = $("#topic").val();
@@ -30,15 +25,14 @@ $('#btn-connect').click(function () {
     } else {
       client.publish(topic, payload)
     }
-    $('#btn-subscribe').click(function (e) {
-      client.subscribe($("#topic").val())
-      $("#substatus").text('Subscribed');
-    })
-    $('#btn-unsubscribe').click(function (e) {
-      client.unsubscribe($("#topic").val())
-      $("#substatus").text('Unsubscribed');
-    })
-
+  })
+  $('#btn-subscribe').click(function (e) {
+    client.subscribe($("#topic").val())
+    $("#substatus").text('Subscribed');
+  })
+  $('#btn-unsubscribe').click(function (e) {
+    client.unsubscribe($("#topic").val())
+    $("#substatus").text('Unsubscribed');
   })
   $('#btn-disconnect').click(function (e) {
     client.end()
