@@ -7,6 +7,7 @@ $('#btn-connect').click(function () {
 
 
     client.on("message", function (topic, payload) {
+      console.log(topic + " : "+payload)
       var tr = $("<tr>")
       var timestamp = moment().format('MMMM D YYYY , h:mm:ss a')
       $("<td>").text(topic).appendTo($(tr))
@@ -27,11 +28,11 @@ $('#btn-connect').click(function () {
     }
   })
   $('#btn-subscribe').click(function (e) {
-    client.subscribe($("#topic").val())
+    client.subscribe($("#topicX").val())
     $("#substatus").text('Subscribed');
   })
   $('#btn-unsubscribe').click(function (e) {
-    client.unsubscribe($("#topic").val())
+    client.unsubscribe($("#topicX").val())
     $("#substatus").text('Unsubscribed');
   })
   $('#btn-disconnect').click(function (e) {
